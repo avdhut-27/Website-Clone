@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart - Adidas EOSS</title>
+    
+    <!-- External CSS -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="cart.css">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+<div class="top-bar">
+    SIGN UP & GET 10% OFF <i class="fa-solid fa-chevron-down"></i>
+</div>
+
+<header class="navbar">
+    <div class="nav-left">
+        <a href="index.html"><img src="adi.jpg" alt="logo"></a>
+    </div>
+
+    <ul class="nav-center">
+        <li><a href="index.html">SHOES</a></li>
+        <li>MEN</li>
+        <li>WOMEN</li>
+        <li>KIDS</li>
+        <li class="bold">SPORTS & LIFESTYLE</li>
+        <li>OUTLET</li>
+        <li class="sale">EOSS - EXTRA 15% OFF</li>
+    </ul>
+
+    <div class="nav-right">
+        <div class="search-box">
+            <input type="text" placeholder="Search">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+        <a href="login-page.html"><i class="fa-regular fa-user"></i></a>
+        <i class="fa-regular fa-heart"></i>
+        <a href="cart.html" class="cart-link">
+            <i class="fa-solid fa-bag-shopping"></i>
+            <span class="cart-badge" id="cartCount">0</span>
+        </a>
+    </div>
+</header>
+
+<div class="cart-container">
+    <div class="cart-header">
+        <h1>Shopping Cart</h1>
+        <nav class="breadcrumb">
+            <a href="index.html">Home</a> / <span>Shopping Cart</span>
+        </nav>
+    </div>
+
+    <!-- Empty Cart Message -->
+    <div id="emptyCart" class="empty-cart" style="display: none;">
+        <i class="fa-solid fa-cart-shopping"></i>
+        <h2>Your cart is empty</h2>
+        <p>Looks like you haven't added anything to your cart yet.</p>
+        <a href="index.html" class="continue-shopping-btn">Continue Shopping</a>
+    </div>
+
+    <!-- Cart Content -->
+    <div id="cartContent" class="cart-content">
+        <div class="cart-items-section">
+            <div class="cart-items" id="cartItems">
+                <!-- Cart items will be dynamically loaded here -->
+            </div>
+        </div>
+
+        <div class="cart-summary-section">
+            <div class="cart-summary">
+                <h2>Order Summary</h2>
+                <div class="summary-row">
+                    <span>Subtotal</span>
+                    <span id="subtotal">₹0.00</span>
+                </div>
+                <div class="summary-row">
+                    <span>Shipping</span>
+                    <span>FREE</span>
+                </div>
+                <div class="summary-row discount-row">
+                    <span>Discount (EOSS)</span>
+                    <span id="discount">-₹0.00</span>
+                </div>
+                <div class="summary-row total-row">
+                    <span>Total</span>
+                    <span id="total">₹0.00</span>
+                </div>
+                <button class="checkout-btn">PROCEED TO CHECKOUT</button>
+                <a href="index.html" class="continue-shopping-link">Continue Shopping</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="main-footer">
+    <div class="footer-grid">
+        <div>
+            <h4>PRODUCTS</h4>
+            <p>Footwear</p>
+            <p>Clothing</p>
+            <p>Accessories</p>
+        </div>
+        <div>
+            <h4>SUPPORT</h4>
+            <p>Help</p>
+            <p>Customer Services</p>
+            <p>Returns & Exchanges</p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>Cookie Settings | Privacy Policy | Terms and Conditions</p>
+    </div>
+</footer>
+
+<script src="cart.js"></script>
+<script>
+    // Render cart items
+    function renderCartItems() {
+        const cart = getCart();
+        const cartItemsContainer = document.getElementById('cartItems');
+        const emptyCart = document.getElementById('emptyCart');
+        const cartContent = document.getElementById('cartContent');
+
+        if (cart.length === 0) {
+            emptyCart.style.display = 'block';
+            cartContent.style.display = 'none';
+            updateCartCount();
+            return;
+        }
+
+        emptyCart.style.display = 'none';
+        cartContent.style.display = 'flex';
+
+        cartItemsContainer.innerHTML = '';
+
+        cart.forEach(item => {
+            const cartItem = document.createElement('div');
+            cartItem.className = 'cart-item';
+            cartItem.innerHTML = `
+                <div class="cart-item-image">
+                    <img src="${item.image}" alt="${item.name}">
+                </div>
+                <div class="cart-item-details">
+                    <h3>${item.name}</h3>
+                    <p class="cart-item-category">${item.category}</p>
+                    <p class="cart-item-size">Size: ${item.size}</p>
+                    <div class="cart-item-price">
+                        <span class="current-price">₹${item.price.toLocaleString('en-IN', {minimumFractionDigits: 2})}</span>
+                        <span class="old-price">₹${item.oldPrice.toLocaleString('en-IN', {minimumFractionDigits: 2})}</span>
+                        <span class="discount-badge">-${item.discount}%</span>
+                    </div>
+                </div>
+                <div class="cart-item-quantity">
+                    <label>Quantity:</label>
+                    <div class="quantity-controls">
+                        <button class="qty-btn minus" onclick="updateQuantity('${item.id}', '${item.size}', ${item.quantity - 1})">-</button>
+                        <span class="qty-value">${item.quantity}</span>
+                        <button class="qty-btn plus" onclick="updateQuantity('${item.id}', '${item.size}', ${item.quantity + 1})">+</button>
+                    </div>
+                </div>
+                <div class="cart-item-total">
+                    <span>₹${(item.price * item.quantity).toLocaleString('en-IN', {minimumFractionDigits: 2})}</span>
+                </div>
+                <button class="remove-btn" onclick="removeItem('${item.id}', '${item.size}')">
+                    <i class="fa-solid fa-trash"></i>
+                </button>
+            `;
+            cartItemsContainer.appendChild(cartItem);
+        });
+
+        updateCartSummary();
+        updateCartCount();
+    }
+
+    // Update quantity
+    function updateQuantity(productId, size, newQuantity) {
+        updateCartQuantity(productId, size, newQuantity);
+        renderCartItems();
+    }
+
+    // Remove item
+    function removeItem(productId, size) {
+        if (confirm('Are you sure you want to remove this item from your cart?')) {
+            removeFromCart(productId, size);
+            renderCartItems();
+        }
+    }
+
+    // Update cart summary
+    function updateCartSummary() {
+        const cart = getCart();
+        const subtotal = cart.reduce((total, item) => total + (item.price * item.quantity), 0);
+        const originalTotal = cart.reduce((total, item) => total + (item.oldPrice * item.quantity), 0);
+        const discount = originalTotal - subtotal;
+        const total = subtotal;
+
+        document.getElementById('subtotal').textContent = `₹${subtotal.toLocaleString('en-IN', {minimumFractionDigits: 2})}`;
+        document.getElementById('discount').textContent = `-₹${discount.toLocaleString('en-IN', {minimumFractionDigits: 2})}`;
+        document.getElementById('total').textContent = `₹${total.toLocaleString('en-IN', {minimumFractionDigits: 2})}`;
+    }
+
+    // Load cart on page load
+    window.addEventListener('DOMContentLoaded', function() {
+        renderCartItems();
+        updateCartCount();
+    });
+</script>
+
+</body>
+</html>

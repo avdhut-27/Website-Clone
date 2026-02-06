@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Detail - Adidas EOSS</title>
+    
+    <!-- External CSS -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="product-detail.css">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+<div class="top-bar">
+    SIGN UP & GET 10% OFF <i class="fa-solid fa-chevron-down"></i>
+</div>
+
+<header class="navbar">
+    <div class="nav-left">
+        <a href="index.html"><img src="adi.jpg" alt="logo"></a>
+    </div>
+
+    <ul class="nav-center">
+        <li><a href="index.html">SHOES</a></li>
+        <li>MEN</li>
+        <li>WOMEN</li>
+        <li>KIDS</li>
+        <li class="bold">SPORTS & LIFESTYLE</li>
+        <li>OUTLET</li>
+        <li class="sale">EOSS - EXTRA 15% OFF</li>
+    </ul>
+
+    <div class="nav-right">
+        <div class="search-box">
+            <input type="text" placeholder="Search">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+        <a href="login-page.html"><i class="fa-regular fa-user"></i></a>
+        <i class="fa-regular fa-heart"></i>
+        <a href="cart.html" class="cart-link">
+            <i class="fa-solid fa-bag-shopping"></i>
+            <span class="cart-badge" id="cartCount">0</span>
+        </a>
+    </div>
+</header>
+
+<div class="product-detail-container">
+    <nav class="breadcrumb">
+        <a href="index.html">Home</a> / <span id="productCategory">Products</span> / <span id="productNameBreadcrumb">Product</span>
+    </nav>
+
+    <div class="product-detail-content">
+        <!-- Product Image Section -->
+        <div class="product-image-section">
+            <div class="main-product-image">
+                <img id="productMainImage" src="" alt="Product Image">
+            </div>
+        </div>
+
+        <!-- Product Info Section -->
+        <div class="product-info-section">
+            <h1 class="product-title" id="productTitle">Product Name</h1>
+            <p class="product-category" id="productCategoryText">Category</p>
+            
+            <div class="product-price-section">
+                <p class="product-price" id="productPrice">₹0.00</p>
+                <p class="product-old-price" id="productOldPrice">₹0.00</p>
+                <span class="discount-badge" id="discountBadge">-0%</span>
+            </div>
+
+            <div class="product-details">
+                <p class="color-info" id="colorInfo">Available in multiple colors</p>
+                
+                <div class="size-section">
+                    <label for="sizeSelect">Size:</label>
+                    <select id="sizeSelect" class="size-select">
+                        <option value="">Select Size</option>
+                        <option value="S">S</option>
+                        <option value="M">M</option>
+                        <option value="L">L</option>
+                        <option value="XL">XL</option>
+                        <option value="42">42</option>
+                        <option value="43">43</option>
+                        <option value="44">44</option>
+                    </select>
+                </div>
+
+                <div class="quantity-section">
+                    <label for="quantitySelect">Quantity:</label>
+                    <select id="quantitySelect" class="quantity-select">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="action-buttons">
+                <button class="add-to-cart-btn" id="addToCartBtn">
+                    <i class="fa-solid fa-bag-shopping"></i> ADD TO CART
+                </button>
+                <button class="wishlist-btn">
+                    <i class="fa-regular fa-heart"></i> ADD TO WISHLIST
+                </button>
+            </div>
+
+            <div class="success-message" id="successMessage" style="display: none;">
+                <i class="fa-solid fa-check-circle"></i> Product added to cart successfully!
+            </div>
+
+            <div class="product-description">
+                <h3>Product Description</h3>
+                <p id="productDescription">Premium quality product from Adidas. Perfect for your active lifestyle. Made with high-quality materials and designed for comfort and durability.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Similar Products Section -->
+<section class="similar-products">
+    <div class="container">
+        <h2>YOU MAY ALSO LIKE</h2>
+        <div class="product-grid">
+            <!-- Similar products will be displayed here -->
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="main-footer">
+    <div class="footer-grid">
+        <div>
+            <h4>PRODUCTS</h4>
+            <p>Footwear</p>
+            <p>Clothing</p>
+            <p>Accessories</p>
+            <p>Outlet-Sale</p>
+            <p>New Arrivals</p>
+            <p>Flat 50% Off!</p>
+        </div>
+        <div>
+            <h4>SPORTS</h4>
+            <p>Running</p>
+            <p>Football</p>
+            <p>Cricket</p>
+            <p>Gym/Training</p>
+        </div>
+        <div>
+            <h4>SUPPORT</h4>
+            <p>Help</p>
+            <p>Customer Services</p>
+            <p>Returns & Exchanges</p>
+            <p>Shipping</p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>Cookie Settings | Privacy Policy | Terms and Conditions | Cookies</p>
+    </div>
+</footer>
+
+<script src="cart.js"></script>
+<script>
+    // Get URL parameters
+    function getUrlParams() {
+        const params = new URLSearchParams(window.location.search);
+        return {
+            id: params.get('id'),
+            name: params.get('name'),
+            price: params.get('price'),
+            oldPrice: params.get('oldPrice'),
+            discount: params.get('discount'),
+            image: params.get('image'),
+            category: params.get('category'),
+            colors: params.get('colors')
+        };
+    }
+
+    // Load product data from URL
+    function loadProductData() {
+        const params = getUrlParams();
+        
+        if (params.name) {
+            document.getElementById('productTitle').textContent = params.name;
+            document.getElementById('productNameBreadcrumb').textContent = params.name;
+        }
+        
+        if (params.category) {
+            document.getElementById('productCategory').textContent = params.category;
+            document.getElementById('productCategoryText').textContent = params.category;
+        }
+        
+        if (params.price) {
+            document.getElementById('productPrice').textContent = `₹${parseFloat(params.price).toLocaleString('en-IN', {minimumFractionDigits: 2})}`;
+        }
+        
+        if (params.oldPrice) {
+            document.getElementById('productOldPrice').textContent = `₹${parseFloat(params.oldPrice).toLocaleString('en-IN', {minimumFractionDigits: 2})}`;
+        }
+        
+        if (params.discount) {
+            document.getElementById('discountBadge').textContent = `-${params.discount}%`;
+        }
+        
+        if (params.image) {
+            document.getElementById('productMainImage').src = params.image;
+            document.getElementById('productMainImage').alt = params.name || 'Product Image';
+        }
+        
+        if (params.colors) {
+            document.getElementById('colorInfo').textContent = `Available in ${params.colors} colours`;
+        }
+
+        // Store product data in a hidden field for cart
+        window.currentProduct = params;
+    }
+
+    // Add to cart functionality
+    document.getElementById('addToCartBtn').addEventListener('click', function() {
+        const size = document.getElementById('sizeSelect').value;
+        
+        if (!size) {
+            alert('Please select a size');
+            return;
+        }
+
+        const quantity = parseInt(document.getElementById('quantitySelect').value);
+        const product = {
+            id: window.currentProduct.id,
+            name: window.currentProduct.name,
+            price: parseFloat(window.currentProduct.price),
+            oldPrice: parseFloat(window.currentProduct.oldPrice),
+            discount: window.currentProduct.discount,
+            image: window.currentProduct.image,
+            category: window.currentProduct.category,
+            colors: window.currentProduct.colors,
+            size: size,
+            quantity: quantity
+        };
+
+        addToCart(product);
+
+        // Show success message
+        const successMsg = document.getElementById('successMessage');
+        successMsg.style.display = 'block';
+        
+        // Update cart count
+        updateCartCount();
+        
+        // Hide message after 3 seconds
+        setTimeout(() => {
+            successMsg.style.display = 'none';
+        }, 3000);
+    });
+
+    // Update cart count
+    function updateCartCount() {
+        const cart = getCart();
+        const cartCount = cart.reduce((total, item) => total + item.quantity, 0);
+        const cartBadge = document.getElementById('cartCount');
+        if (cartBadge) {
+            cartBadge.textContent = cartCount;
+            cartBadge.style.display = cartCount > 0 ? 'block' : 'none';
+        }
+    }
+
+    // Load product data when page loads
+    window.addEventListener('DOMContentLoaded', function() {
+        loadProductData();
+        updateCartCount();
+    });
+</script>
+
+</body>
+</html>

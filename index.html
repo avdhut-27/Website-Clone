@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Adidas EOSS</title>
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+<div class="top-bar">
+    SIGN UP & GET 10% OFF <i class="fa-solid fa-chevron-down"></i>
+</div>
+
+<header class="navbar">
+    <div class="nav-left">
+        <img src="adi.jpg" alt="logo">
+    </div>
+
+    <ul class="nav-center">
+        <li>SHOES</li>
+        <li>MEN</li>
+        <li>WOMEN</li>
+        <li>KIDS</li>
+        <li class="bold">SPORTS & LIFESTYLE</li>
+        <li>OUTLET</li>
+        <li class="sale">EOSS - EXTRA 15% OFF</li>
+    </ul>
+
+    <div class="nav-right">
+        <div class="search-box">
+            <input type="text" placeholder="Search">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+        <a href="login-page.html"><i class="fa-regular fa-user"></i></a>
+        <i class="fa-regular fa-heart"></i>
+        <a href="cart.html" class="cart-link">
+            <i class="fa-solid fa-bag-shopping"></i>
+            <span class="cart-badge" id="cartCount">0</span>
+        </a>
+    </div>
+</header>
+
+<div class="main-content">
+
+    <h1 class="head-title">
+        End of Season Sale (EOSS) - Flat 40% Off + Extra 15% on 4499
+        <span class="small">[2643]</span>
+    </h1>
+
+    <div class="backimg">
+        <img src="backimg.avif" alt="!">
+    </div>
+
+    <div class="second">
+        <div class="men">
+            <img src="men.avif">
+            <p class="img-text">MEN</p>
+        </div>
+        <div class="men">
+            <img src="img2.avif">
+            <p class="img-text">WOMEN</p>
+        </div>
+        <div class="men">
+            <img src="img3.avif">
+            <p class="img-text">KIDS</p>
+        </div>
+        <div class="men">
+            <img src="img4.avif">
+            <p class="img-text">FIRST TIME ON DISCOUNT</p>
+        </div>
+        <div class="men">
+            <img src="img5.avif">
+            <p class="img-text">LAST SIZES LEFT</p>
+        </div>
+    </div>
+
+    <div class="sort-div">
+        <button class="button1">
+            FILTER & SORT <i class="fa-solid fa-sliders"></i>
+        </button>
+    </div>
+
+    <!-- PRODUCT GRID -->
+    <div class="product-grid">
+
+        <div class="product" onclick="goToProduct('product-detail.html?id=1&name=Firebird Loose Track Pants&price=3599.50&oldPrice=5999.00&discount=40&image=pants.avif&category=Women Originals&colors=2')">
+            <img class="product-img" src="pants.avif">
+            <p class="price">₹3 599.50</p>
+            <p class="old">₹5 999.00 · -40%</p>
+            <h4>Firebird Loose Track Pants</h4>
+            <p class="meta">Women Originals</p>
+            <p class="meta">2 colours</p>
+        </div>
+
+        <div class="product" onclick="goToProduct('product-detail.html?id=2&name=Galaxy 6 Shoes&price=3599.50&oldPrice=5999.00&discount=40&image=shoe-1.avif&category=Women Running&colors=4')">
+            <img class="product-img" src="shoe-1.avif">
+            <p class="price">₹3 599.50</p>
+            <p class="old">₹5 999.00 · -40%</p>
+            <h4>Galaxy 6 Shoes</h4>
+            <p class="meta">Women Running</p>
+            <p class="meta">4 colours</p>
+        </div>
+
+        <div class="product" onclick="goToProduct('product-detail.html?id=3&name=PRIMO SHOES&price=2799.50&oldPrice=3999.00&discount=30&image=shoe-2.avif&category=Men Walking&colors=2')">
+            <img class="product-img" src="shoe-2.avif">
+            <p class="price">₹2 799.50</p>
+            <p class="old">₹3 999.00 · -30%</p>
+            <h4>PRIMO SHOES</h4>
+            <p class="meta">Men Walking</p>
+            <p class="meta">2 colours</p>
+        </div>
+
+        <div class="product" onclick="goToProduct('product-detail.html?id=4&name=CLEAR FACTOR SHOES&price=2159.50&oldPrice=3599.00&discount=40&image=shoe-3.avif&category=Men Running&colors=3')">
+            <img class="product-img" src="shoe-3.avif">
+            <p class="price">₹2 159.50</p>
+            <p class="old">₹3 599.00 · -40%</p>
+            <h4>CLEAR FACTOR SHOES</h4>
+            <p class="meta">Men Running</p>
+            <p class="meta">3 colours</p>
+        </div>
+        <div class="product" onclick="goToProduct('product-detail.html?id=5&name=Adidas Slides&price=3599.50&oldPrice=5999.00&discount=40&image=slides.avif&category=Women Originals&colors=2')">
+            <img class="product-img" src="slides.avif">
+            <p class="price">₹3 599.50</p>
+            <p class="old">₹5 999.00 · -40%</p>
+            <h4>Adidas Slides</h4>
+            <p class="meta">Women Originals</p>
+            <p class="meta">2 colours</p>
+        </div>
+
+        <div class="product" onclick="goToProduct('product-detail.html?id=6&name=Adidas Jersey&price=3599.50&oldPrice=5999.00&discount=40&image=jersey.avif&category=Women Running&colors=4')">
+            <img class="product-img" src="jersey.avif">
+            <p class="price">₹3 599.50</p>
+            <p class="old">₹5 999.00 · -40%</p>
+            <h4>Adidas Jersey</h4>
+            <p class="meta">Women Running</p>
+            <p class="meta">4 colours</p>
+        </div>
+
+        <div class="product" onclick="goToProduct('product-detail.html?id=7&name=Football Jersey&price=2799.50&oldPrice=3999.00&discount=30&image=jersey-1.avif&category=Men Walking&colors=2')">
+            <img class="product-img" src="jersey-1.avif">
+            <p class="price">₹2 799.50</p>
+            <p class="old">₹3 999.00 · -30%</p>
+            <h4>Football Jersey</h4>
+            <p class="meta">Men Walking</p>
+            <p class="meta">2 colours</p>
+        </div>
+
+        <div class="product" onclick="goToProduct('product-detail.html?id=8&name=Graphic Tee&price=2159.50&oldPrice=3599.00&discount=40&image=graphic-1.avif&category=Men Running&colors=3')">
+            <img class="product-img" src="graphic-1.avif">
+            <p class="price">₹2 159.50</p>
+            <p class="old">₹3 599.00 · -40%</p>
+            <h4>Graphic Tee</h4>
+            <p class="meta">Men Running</p>
+            <p class="meta">3 colours</p>
+        </div>
+        <div class="product" onclick="goToProduct('product-detail.html?id=9&name=Classic Tee&price=3599.50&oldPrice=5999.00&discount=40&image=tee1.avif&category=Women Originals&colors=2')">
+            <img class="product-img" src="tee1.avif">
+            <p class="price">₹3 599.50</p>
+            <p class="old">₹5 999.00 · -40%</p>
+            <h4>Classic Tee</h4>
+            <p class="meta">Women Originals</p>
+            <p class="meta">2 colours</p>
+        </div>
+
+        <div class="product" onclick="goToProduct('product-detail.html?id=10&name=Sport Tee&price=3599.50&oldPrice=5999.00&discount=40&image=tee2.avif&category=Women Running&colors=4')">
+            <img class="product-img" src="tee2.avif">
+            <p class="price">₹3 599.50</p>
+            <p class="old">₹5 999.00 · -40%</p>
+            <h4>Sport Tee</h4>
+            <p class="meta">Women Running</p>
+            <p class="meta">4 colours</p>
+        </div>
+
+        <div class="product" onclick="goToProduct('product-detail.html?id=11&name=Premium Slides&price=2799.50&oldPrice=3999.00&discount=30&image=slide-2.avif&category=Men Walking&colors=2')">
+            <img class="product-img" src="slide-2.avif">
+            <p class="price">₹2 799.50</p>
+            <p class="old">₹3 999.00 · -30%</p>
+            <h4>Premium Slides</h4>
+            <p class="meta">Men Walking</p>
+            <p class="meta">2 colours</p>
+        </div>
+
+        <div class="product" onclick="goToProduct('product-detail.html?id=12&name=Casual Tee&price=2159.50&oldPrice=3599.00&discount=40&image=tee3.avif&category=Men Running&colors=3')">
+            <img class="product-img" src="tee3.avif">
+            <p class="price">₹2 159.50</p>
+            <p class="old">₹3 599.00 · -40%</p>
+            <h4>Casual Tee</h4>
+            <p class="meta">Men Running</p>
+            <p class="meta">3 colours</p>
+        </div>
+
+    </div>
+</div>
+  <!-- FOOTER CATEGORIES -->
+<section class="footer-categories">
+    <h3>OUR CLOTHING AND SHOE CATEGORIES</h3>
+
+    <div class="category-grid">
+        <div>
+            <p>Men's Eoss Sale</p>
+            <p>Women's Eoss Sale</p>
+        </div>
+
+        <div>
+            <p>Kids's Eoss Sale</p>
+            <p>Originals Eoss Sale</p>
+        </div>
+
+        <div>
+            <p>Superstar Eoss Sale</p>
+            <p>Eoss Shoes Sale</p>
+        </div>
+
+        <div>
+            <p>Eoss Clothing Sale</p>
+            <p>Eoss Jackets Sale</p>
+        </div>
+
+        <div>
+            <p>Eoss Running Shoes</p>
+            <p>Eoss Football Shoes</p>
+        </div>
+
+        <div>
+            <p>Men's Last Size</p>
+            <p>Women's Last Size</p>
+        </div>
+    </div>
+</section>
+
+<!-- JOIN ADIDAS -->
+<section class="join-adidas">
+    <h2>JOIN ADIDAS AND GET 10% OFF</h2>
+    <button>SIGN UP FOR FREE →</button>
+</section>
+
+<!-- MAIN FOOTER -->
+<footer class="main-footer">
+
+    <div class="footer-grid">
+
+        <div>
+            <h4>PRODUCTS</h4>
+            <p>Footwear</p>
+            <p>Clothing</p>
+            <p>Accessories</p>
+            <p>Outlet-Sale</p>
+            <p>New Arrivals</p>
+            <p>Flat 50% Off!</p>
+        </div>
+
+        <div>
+            <h4>SPORTS</h4>
+            <p>Running</p>
+            <p>Football</p>
+            <p>Cricket</p>
+            <p>Gym/Training</p>
+            <p>Tennis</p>
+            <p>Hiking & Outdoor</p>
+            <p>Basketball</p>
+            <p>Swimming</p>
+            <p>Skateboarding</p>
+        </div>
+
+        <div>
+            <h4>COLLECTIONS</h4>
+            <p>Ultraboost</p>
+            <p>Superstar</p>
+            <p>NMD</p>
+            <p>Stan Smith</p>
+            <p>Sustainability</p>
+            <p>Predator</p>
+            <p>Parley</p>
+            <p>Adicolor</p>
+        </div>
+
+        <div>
+            <h4>SUPPORT</h4>
+            <p>Help</p>
+            <p>UNiDAYS</p>
+            <p>Customer Services</p>
+            <p>Returns & Exchanges</p>
+            <p>Shipping</p>
+            <p>Order Tracker</p>
+            <p>Store Finder</p>
+            <p>adiClub</p>
+            <p>adiClub Terms and conditions</p>
+            <p>Sitemap</p>
+        </div>
+
+        <div>
+            <h4>COMPANY INFO</h4>
+            <p>About Us</p>
+            <p>adidas stories</p>
+            <p>adidas Apps</p>
+            <p>Entity Details</p>
+            <p>Press</p>
+            <p>Careers</p>
+        </div>
+
+        <div>
+            <h4>FOLLOW US</h4>
+            <i class="fa-brands fa-instagram"></i>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        <p>Cookie Settings | Privacy Policy | Terms and Conditions | Cookies</p>
+    </div>
+
+</footer>
+
+    <script src="cart.js"></script>
+    <script>
+        // Function to navigate to product detail page
+        function goToProduct(url) {
+            window.location.href = url;
+        }
+
+        // Update cart count on page load
+        function updateCartCount() {
+            const cart = getCart();
+            const cartCount = cart.reduce((total, item) => total + item.quantity, 0);
+            const cartBadge = document.getElementById('cartCount');
+            if (cartBadge) {
+                cartBadge.textContent = cartCount;
+                cartBadge.style.display = cartCount > 0 ? 'block' : 'none';
+            }
+        }
+
+        // Update cart count when page loads
+        window.addEventListener('DOMContentLoaded', updateCartCount);
+    </script>
+</body>
+</html>
