@@ -6,12 +6,12 @@ function getCart() {
     return cart ? JSON.parse(cart) : [];
 }
 
-// Save cart to localStorage
+//  localStorage
 function saveCart(cart) {
     localStorage.setItem('adidasCart', JSON.stringify(cart));
 }
 
-// Add item to cart
+// Add item
 function addToCart(product) {
     let cart = getCart();
     
